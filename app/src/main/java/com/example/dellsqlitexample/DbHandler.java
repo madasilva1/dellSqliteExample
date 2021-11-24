@@ -83,6 +83,7 @@ public class DbHandler extends SQLiteOpenHelper{
     // Delete User Details
     public void DeleteUser(int userid){
         SQLiteDatabase db = this.getWritableDatabase();
+
         db.delete(TABLE_Users, KEY_ID+" = ?",new String[]{String.valueOf(userid)});
         db.close();
     }

@@ -1,6 +1,8 @@
 package com.example.dellsqlitexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        DbHandler helper;
+        DbHandler helper ;
+        helper = new DbHandler(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         delet = (EditText)findViewById(R.id.delete);
@@ -33,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         saveBtn = (Button)findViewById(R.id.btnSave);
         saveBtn.setOnClickListener(new View.OnClickListener()
 
         {
+
+
             @Override
             public void onClick(View v) {
                 String username = name.getText().toString()+"\n";
@@ -50,12 +56,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void delete(View view) {
-     String DeleteUser = deletebtn.getText().toString();
+
+    public void deleteBtn (View view) {
+
+     String DeleteUser = delet.getText().toString();
      if(DeleteUser.isEmpty()){
          Toast.makeText(getApplicationContext(), "Delete unsuccessfully",Toast.LENGTH_SHORT).show();
      }
      else{
+
 
 
      }
