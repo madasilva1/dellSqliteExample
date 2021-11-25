@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void deleteBtn (View view) {
+  public void deleteBtn (View view) {
 
      String DeleteUser = delet.getText().toString();
      if(DeleteUser.isEmpty()){
@@ -65,9 +65,11 @@ public class MainActivity extends AppCompatActivity {
      }
      else{
 
-
+//traying fix push git
 
      }
+
     }
+
 }
 
