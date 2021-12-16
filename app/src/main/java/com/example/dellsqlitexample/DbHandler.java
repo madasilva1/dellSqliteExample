@@ -80,13 +80,16 @@ public class DbHandler extends SQLiteOpenHelper{
         }
         return  userList;
     }
-    // Delete User Details
-    public void DeleteUser(int userid){
+
+
+   /* public void DeleteUser(String userName){
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.delete(TABLE_Users, KEY_ID+" = ?",new String[]{String.valueOf(userid)});
+        db.delete(TABLE_Users, KEY_ID+" = ?",new String[]{String.valueOf(userName)});
         db.close();
-    }
+    }*/
+
+
     // Update User Details
     public int UpdateUserDetails(String location, String designation, int id){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -95,6 +98,12 @@ public class DbHandler extends SQLiteOpenHelper{
         cVals.put(KEY_DESG, designation);
         int count = db.update(TABLE_Users, cVals, KEY_ID+" = ?",new String[]{String.valueOf(id)});
         return  count;
+    }
+
+    public void DeleteUser() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_Users,"name=?",new String[]{});
+        db.close();
     }
 }
 

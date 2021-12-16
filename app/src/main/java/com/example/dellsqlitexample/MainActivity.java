@@ -16,11 +16,12 @@ public class MainActivity extends AppCompatActivity {
     EditText name, loc, desig,delet,sear;
     Button saveBtn,deletebtn,searchBtn;
     Intent intent;
+    DetailsActivity detailsActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        DbHandler helper ;
-        helper = new DbHandler(this);
+        DbHandler dbHandler;
+        dbHandler = new DbHandler(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         delet = (EditText)findViewById(R.id.delete);
@@ -33,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
         deletebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                dbHandler.DeleteUser();
+                Toast.makeText(MainActivity.this, "Deleted ", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, DetailsActivity.class);
+                startActivity(i);
 
             }
         });
@@ -57,19 +63,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-  public void deleteBtn (View view) {
 
-     String DeleteUser = delet.getText().toString();
-     if(DeleteUser.isEmpty()){
-         Toast.makeText(getApplicationContext(), "Delete unsuccessfully",Toast.LENGTH_SHORT).show();
-     }
-     else{
-
-
-
-     }
 
     }
 
-}
+
 
