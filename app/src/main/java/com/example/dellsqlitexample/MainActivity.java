@@ -55,10 +55,15 @@ public class MainActivity extends AppCompatActivity {
                 String location = loc.getText().toString();
                 String designation = desig.getText().toString();
                 DbHandler dbHandler = new DbHandler(MainActivity.this);
-                dbHandler.insertUserDetails(username,location,designation);
-                intent = new Intent(MainActivity.this,DetailsActivity.class);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(), "Details Inserted Successfully",Toast.LENGTH_SHORT).show();
+                if(username.isEmpty() || location.isEmpty() || designation.isEmpty()){
+                    Toast.makeText(MainActivity.this,"Not Saved, enter all Data",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    dbHandler.insertUserDetails(username, location, designation);
+                    intent = new Intent(MainActivity.this, DetailsActivity.class);
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Details Inserted Successfully", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
