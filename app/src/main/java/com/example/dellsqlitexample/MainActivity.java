@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener()
 
         {
-
-
             @Override
             public void onClick(View v) {
                 String username = name.getText().toString()+"\n";
@@ -57,12 +55,17 @@ public class MainActivity extends AppCompatActivity {
                 DbHandler dbHandler = new DbHandler(MainActivity.this);
                 if(username.isEmpty() || location.isEmpty() || designation.isEmpty()){
                     Toast.makeText(MainActivity.this,"Not Saved, enter all Data",Toast.LENGTH_LONG).show();
+                    return;
                 }
                 else {
                     dbHandler.insertUserDetails(username, location, designation);
                     intent = new Intent(MainActivity.this, DetailsActivity.class);
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "Details Inserted Successfully", Toast.LENGTH_SHORT).show();
+                    name.setText("");
+                    loc.setText(" ");
+                    desig.setText("");
+                    
                 }
             }
         });
