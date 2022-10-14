@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText name, loc, desig,delet,sear;
-    Button saveBtn,deletebtn,searchBtn;
+    Button saveBtn,deletebtn,searchBtn,viewBtn;
     Intent intent;
     DetailsActivity detailsActivity;
     @Override
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         saveBtn = (Button)findViewById(R.id.btnSave);
         saveBtn.setOnClickListener(new View.OnClickListener()
-
         {
             @Override
             public void onClick(View v) {
@@ -65,8 +64,16 @@ public class MainActivity extends AppCompatActivity {
                     name.setText("");
                     loc.setText(" ");
                     desig.setText("");
-                    
+
                 }
+            }
+        });
+        viewBtn = (Button)findViewById(R.id.ViewallBtn);
+        viewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent i = new Intent(MainActivity.this,DetailsActivity.class);
+               startActivity(i);
             }
         });
     }
