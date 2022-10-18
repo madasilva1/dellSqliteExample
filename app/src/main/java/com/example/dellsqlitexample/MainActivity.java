@@ -2,18 +2,19 @@ package com.example.dellsqlitexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.content.Intent;
-import android.os.Bundle;
-import android.telecom.Call;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    EditText name, loc, desig,delet,sear;
+    EditText name;
+    EditText loc;
+    EditText desig;
+    EditText delet;
+    EditText sear;
     Button saveBtn,deletebtn,searchBtn,viewBtn;
     Intent intent;
     DetailsActivity detailsActivity;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                dbHandler.DeleteUser(19);
+                dbHandler.DeleteUser(27);
                 delet.setText("");
                 Toast.makeText(MainActivity.this, "Deleted ", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(MainActivity.this, DetailsActivity.class);
@@ -81,11 +82,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-    }
+    
+    
+}
 
 
 

@@ -35,6 +35,7 @@ public class DbHandler extends SQLiteOpenHelper{
         // Create tables again
         onCreate(db);
     }
+
     // **** CRUD (Create, Read, Update, Delete) Operations ***** //
 
     // Adding new User Details
@@ -83,7 +84,7 @@ public class DbHandler extends SQLiteOpenHelper{
         return  userList;
     }
 
-    public void DeleteUser(int index){
+    public void DeleteUser(int  index){
         SQLiteDatabase db = this.getWritableDatabase();
 
       String query = "DELETE FROM " + TABLE_Users + " WHERE "+ KEY_ID + " = " + index;
@@ -104,10 +105,11 @@ public class DbHandler extends SQLiteOpenHelper{
         return  count;
     }
 
-    public void DeleteUser(EditText deletext) {
+   /* public void DeleteUser(String deletext) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_Users,"name=?",new String[]{});
+        String query = "DELETE FROM " + TABLE_Users + " WHERE " + KEY_NAME + " =  " + deletext;
+        db.execSQL(query);
         db.close();
-    }
+    }*/
 }
 
