@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button saveBtn,deletebtn,searchBtn,viewBtn;
     Intent intent;
     DetailsActivity detailsActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                dbHandler.DeleteUser();
+
+                dbHandler.DeleteUser(19);
+                delet.setText("");
                 Toast.makeText(MainActivity.this, "Deleted ", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(MainActivity.this, DetailsActivity.class);
                 startActivity(i);
+
 
             }
         });
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 

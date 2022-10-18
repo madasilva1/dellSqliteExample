@@ -5,6 +5,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.EditText;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 public class DbHandler extends SQLiteOpenHelper{
@@ -81,13 +83,15 @@ public class DbHandler extends SQLiteOpenHelper{
         return  userList;
     }
 
-
-   /* public void DeleteUser(String userName){
+    public void DeleteUser(int index){
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.delete(TABLE_Users, KEY_ID+" = ?",new String[]{String.valueOf(userName)});
+      String query = "DELETE FROM " + TABLE_Users + " WHERE "+ KEY_ID + " = " + index;
+        db.execSQL(query);
         db.close();
-    }*/
+
+    }
+
 
 
     // Update User Details
@@ -100,7 +104,7 @@ public class DbHandler extends SQLiteOpenHelper{
         return  count;
     }
 
-    public void DeleteUser() {
+    public void DeleteUser(EditText deletext) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_Users,"name=?",new String[]{});
         db.close();
