@@ -84,10 +84,10 @@ public class DbHandler extends SQLiteOpenHelper{
         return  userList;
     }
 
-    public void DeleteUser(int  index){
+    public void DeleteUser(int index){
         SQLiteDatabase db = this.getWritableDatabase();
-
-      String query = "DELETE FROM " + TABLE_Users + " WHERE "+ KEY_ID + " = " + index;
+     // db.delete(TABLE_Users, "name = ?",new String[] {String.valueOf(index)});
+        String query = "DELETE FROM " + TABLE_Users + " WHERE "+ KEY_ID ;
         db.execSQL(query);
         db.close();
 
