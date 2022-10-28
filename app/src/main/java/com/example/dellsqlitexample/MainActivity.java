@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
         name = (EditText)findViewById(R.id.txtName);
         loc = (EditText)findViewById(R.id.txtLocation);
         desig = (EditText)findViewById(R.id.txtDesignation);
-        sear = (EditText)findViewById(R.id.search);
-        searchBtn = (Button)findViewById(R.id.searchBtn);
+
         deletebtn = (Button)findViewById(R.id.deleteBtn);
         deletebtn.setOnClickListener(new View.OnClickListener() {
             @Override
