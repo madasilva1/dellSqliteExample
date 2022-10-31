@@ -30,23 +30,24 @@ public class MainActivity extends AppCompatActivity {
         name = (EditText)findViewById(R.id.txtName);
         loc = (EditText)findViewById(R.id.txtLocation);
         desig = (EditText)findViewById(R.id.txtDesignation);
+     
 
+       // Method to reset database passing variavel myname in to DeleteUser in DbHandler
+         String myname = null;
+        name.setText(myname);
         deletebtn = (Button)findViewById(R.id.deleteBtn);
         deletebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                                         @Override
+                                         public void onClick(View v) {
 
+                                             dbHandler.DeleteUser(myname);
 
-                dbHandler.DeleteUser(27);
-                delet.setText("");
-                Toast.makeText(MainActivity.this, "Deleted ", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MainActivity.this, DetailsActivity.class);
-                startActivity(i);
-
-
-            }
-        });
-
+                                             Toast.makeText(MainActivity.this, "Deleted ", Toast.LENGTH_SHORT).show();
+                                             Intent i = new Intent(MainActivity.this, DetailsActivity.class);
+                                             startActivity(i);
+                                             delet.setText("");
+                                         }
+                                     });
         saveBtn = (Button)findViewById(R.id.btnSave);
         saveBtn.setOnClickListener(new View.OnClickListener()
         {
